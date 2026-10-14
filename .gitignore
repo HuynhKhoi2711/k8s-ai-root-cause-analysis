@@ -1,0 +1,166 @@
+# =============================================================================
+# AI-Powered Root Cause Analysis — .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Terraform
+# -----------------------------------------------------------------------------
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+# Sensitive variable files — use .tfvars.example instead
+*.tfvars
+*.tfvars.json
+# Do NOT ignore .terraform.lock.hcl — commit it after terraform init
+# !.terraform.lock.hcl
+
+# Override files (local overrides should not be shared)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform plan output files
+*.tfplan
+
+# -----------------------------------------------------------------------------
+# Environment and secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+# Allow the example file to be committed
+!.env.example
+
+# AWS credentials and config — never commit these
+.aws/
+aws-credentials
+*.pem
+*.key
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.Python
+
+# Test and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Jupyter notebooks (checkpoints)
+.ipynb_checkpoints/
+
+# -----------------------------------------------------------------------------
+# ML artifacts and large data files
+# -----------------------------------------------------------------------------
+# Local model artifacts — use MLflow or S3 instead
+ml/models/
+ml/artifacts/
+# Large datasets — store in S3 or DVC
+ml/data/raw/
+ml/data/processed/
+*.csv
+*.parquet
+*.pkl
+*.joblib
+*.h5
+
+# MLflow local tracking directory
+mlruns/
+mlflow.db
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+# Docker context build caches
+.docker/
+
+# -----------------------------------------------------------------------------
+# IDEs and editors
+# -----------------------------------------------------------------------------
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (PyCharm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+Session.vim
+
+# Emacs
+*#
+.#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+*.log
+logs/
+*.out
+
+# -----------------------------------------------------------------------------
+# Miscellaneous
+# -----------------------------------------------------------------------------
+# Temporary files
+*.tmp
+*.temp
+.cache/

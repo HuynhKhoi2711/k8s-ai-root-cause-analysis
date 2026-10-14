@@ -1,0 +1,59 @@
+# =============================================================================
+# AI-Powered Root Cause Analysis — .dockerignore
+# =============================================================================
+# This file applies when building Docker images from service directories.
+# Keep it focused: exclude files that must not reach the build context but
+# do not exclude required application source code.
+
+# Version control
+.git/
+.gitignore
+
+# Environment and secrets — never bake credentials into images
+.env
+.env.*
+*.pem
+*.key
+.aws/
+
+# Terraform state and provider binaries — not needed in application images
+terraform/
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ML artifacts — served separately; do not bundle into the API image
+ml/models/
+ml/artifacts/
+ml/data/
+mlruns/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation (not needed in runtime images)
+docs/
+*.md
+
+# Logs
+*.log
+logs/
